@@ -283,12 +283,44 @@ document.write("Last updated "+new Date(document.lastModified).toUTCString());
 </script>
 
 
-<span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"></span> 次</span>
+
+
+
+<!-- 引入不蒜子脚本 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- 显示容器（建议包裹以控制隐藏） -->
+<span id="busuanzi_container_site_pv" style="display:none">
+  本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+</span>
+
+<script>
+  // 等待不蒜子加载完成后叠加初始值
+  const offset = 10000; // 设置你的初始值
+  const interval = setInterval(() => {
+    const pvEl = document.getElementById('busuanzi_value_site_pv');
+    const container = document.getElementById('busuanzi_container_site_pv');
+    
+    if (pvEl && container && container.style.display !== 'none') {
+      const current = parseInt(pvEl.textContent) || 0;
+      pvEl.textContent = current + offset;
+      clearInterval(interval);
+    }
+  }, 100);
+</script>
+
+
+
+
+
+<!--  
+  
+<span id="busuanzi_container_site_pv">    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次</span>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
   
-<!--    <iframe src="https://komarev.com/ghpvc/?username=xiangju0208" width="600" height="400"></iframe>   
+  <iframe src="https://komarev.com/ghpvc/?username=xiangju0208" width="600" height="400"></iframe>   
  
 ![](https://komarev.com/ghpvc/?username=xiangju0208)
  -->
